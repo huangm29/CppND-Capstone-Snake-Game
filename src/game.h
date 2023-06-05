@@ -29,7 +29,7 @@ class Game {
   void PlaceFood();
   void Update();
 
-  bool _isPaused false;
+  bool _isPaused = false;
 };
 
 #endif
