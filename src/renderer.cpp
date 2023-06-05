@@ -79,3 +79,13 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
   std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }
+
+void Renderer::Pause(){
+    SDL_Color textColor = { 255, 255, 255 }; // White color
+    SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Paused", textColor);
+    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    // Render the texture on the screen at the desired position
+    // ...
+    SDL_FreeSurface(textSurface);
+    SDL_DestroyTexture(textTexture);
+}
