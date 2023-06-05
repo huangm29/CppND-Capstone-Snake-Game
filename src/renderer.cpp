@@ -81,9 +81,11 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
 }
 
 void Renderer::Pause(){
+    TTF_Font* font = TTF_OpenFont("Sans.ttf", font_size);
+
     SDL_Color textColor = { 255, 255, 255 }; // White color
     SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Paused", textColor);
-    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(sdl_renderer, textSurface);
     // Render the texture on the screen at the desired position
     // ...
     SDL_FreeSurface(textSurface);
