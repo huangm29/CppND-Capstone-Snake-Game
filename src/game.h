@@ -28,6 +28,7 @@ class Game {
 
   void PlaceFood();
   void Update();
+  void PauseButton();
 
   bool _isPaused = false;
 };

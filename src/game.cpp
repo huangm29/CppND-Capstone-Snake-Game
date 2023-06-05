@@ -87,7 +87,7 @@ void Game::Update() {
   }
 }
 
-void Game::Pause(){
+void Game::PauseButton(){
   _isPaused = !_isPaused;  
 }
 
