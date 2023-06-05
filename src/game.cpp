@@ -21,7 +21,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
   while (running) {
     if (_isPaused){
-      render.Pause();
+      renderer.Pause();
     } 
 
     frame_start = SDL_GetTicks();
