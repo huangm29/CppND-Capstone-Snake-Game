@@ -44,6 +44,6 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
   }
 }
 
-void Controller::SetPause() { _isPaused = !_isPaused;}
+void Controller::SetPause() const { _isPaused = !_isPaused;}
 
 bool Controller::Paused() const {return _isPaused;}
