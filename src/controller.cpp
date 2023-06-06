@@ -43,3 +43,5 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
     }
   }
 }
+
+bool Controller::Paused() {return _isPaused;}

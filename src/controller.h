@@ -7,10 +7,12 @@
 class Controller {
  public:
   void HandleInput(bool &running, Snake &snake) const;
+  bool Paused();
 
  private:
   void ChangeDirection(Snake &snake, Snake::Direction input,
                        Snake::Direction opposite) const;
+  bool _isPaused = false;
 };
 
 #endif

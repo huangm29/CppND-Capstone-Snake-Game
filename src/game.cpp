@@ -24,7 +24,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
-    if (controller._isPaused){
+    if (controller.Paused()){
       renderer.Pause();
     } 
     else{
