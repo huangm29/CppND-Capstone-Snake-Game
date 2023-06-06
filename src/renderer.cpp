@@ -81,8 +81,6 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
 }
 
 void Renderer::Pause(){
-
-
   std::string title{"Paused."};
   SDL_SetWindowTitle(sdl_window, title.c_str());
 

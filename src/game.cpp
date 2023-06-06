@@ -20,16 +20,17 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   bool running = true;
 
   while (running) {
-    if (_isPaused){
-      renderer.Pause();
-    } 
-
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake, *this);
-    Update();
-    renderer.Render(snake, food);
+    controller.HandleInput(running, snake);
+    if (controller._isPaused){
+      renderer.Pause();
+    } 
+    else{
+      Update();
+      renderer.Render(snake, food);
+    }
 
     frame_end = SDL_GetTicks();
 
@@ -85,10 +86,6 @@ void Game::Update() {
     snake.GrowBody();
     snake.speed += 0.02;
   }
-}
-
-void Game::PauseButton(){
-  _isPaused = !_isPaused;  
 }
 
 
