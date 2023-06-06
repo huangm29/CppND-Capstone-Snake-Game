@@ -38,7 +38,7 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
           break;
 
         case SDLK_p:
-          Game.PauseButton();
+          game.PauseButton();
           break;
       }
     }
