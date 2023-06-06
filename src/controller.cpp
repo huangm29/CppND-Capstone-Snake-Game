@@ -37,11 +37,13 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
           break;
 
         case SDLK_p:
-          _isPaused = !_isPaused
+          SetPause();
           break;
       }
     }
   }
 }
+
+void Controller::SetPause() { _isPaused = !_isPaused;}
 
 bool Controller::Paused() const {return _isPaused;}
