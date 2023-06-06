@@ -5,7 +5,7 @@
 #include "SDL.h"
 #include "controller.h"
 #include "renderer.h"
-#include "snake.h"
+
 
 class Game {
  public:
@@ -14,6 +14,8 @@ class Game {
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
+
+  void PauseButton();
 
  private:
   Snake snake;
@@ -28,7 +30,7 @@ class Game {
 
   void PlaceFood();
   void Update();
-  void PauseButton();
+
 
   bool _isPaused = false;
 };
