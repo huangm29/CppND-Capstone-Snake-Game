@@ -81,15 +81,6 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
 }
 
 void Renderer::Pause(){
-  std::string title{"Paused."};
+  std::string title{"Pause"};
   SDL_SetWindowTitle(sdl_window, title.c_str());
-
-  // Set the background color
-  SDL_SetRenderDrawColor(sdl_renderer, 0, 0, 0, 255); // Set to black
-
-  // Clear the renderer
-  SDL_RenderClear(sdl_renderer);
-
-  // Set the color for the message
-  SDL_SetRenderDrawColor(sdl_renderer, 255, 255, 255, 255); // Set to white
 }

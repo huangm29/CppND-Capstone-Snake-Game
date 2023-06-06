@@ -24,34 +24,35 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    controller.HandleInput(running,  paused, snake);
+    controller.HandleInput(running, paused, snake);
     if (paused){
       renderer.Pause();
     } 
     else{
       Update();
       renderer.Render(snake, food);
-    }
+    
 
-    frame_end = SDL_GetTicks();
+      frame_end = SDL_GetTicks();
 
-    // Keep track of how long each loop through the input/update/render cycle
-    // takes.
-    frame_count++;
-    frame_duration = frame_end - frame_start;
+      // Keep track of how long each loop through the input/update/render cycle
+      // takes.
+      frame_count++;
+      frame_duration = frame_end - frame_start;
 
-    // After every second, update the window title.
-    if (frame_end - title_timestamp >= 1000) {
-      renderer.UpdateWindowTitle(score, frame_count);
-      frame_count = 0;
-      title_timestamp = frame_end;
-    }
+      // After every second, update the window title.
+      if (frame_end - title_timestamp >= 1000) {
+        renderer.UpdateWindowTitle(score, frame_count);
+        frame_count = 0;
+        title_timestamp = frame_end;
+      }
 
-    // If the time for this frame is too small (i.e. frame_duration is
-    // smaller than the target ms_per_frame), delay the loop to
-    // achieve the correct frame rate.
-    if (frame_duration < target_frame_duration) {
-      SDL_Delay(target_frame_duration - frame_duration);
+      // If the time for this frame is too small (i.e. frame_duration is
+      // smaller than the target ms_per_frame), delay the loop to
+      // achieve the correct frame rate.
+      if (frame_duration < target_frame_duration) {
+        SDL_Delay(target_frame_duration - frame_duration);
+      }
     }
   }
 }
