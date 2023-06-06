@@ -15,7 +15,6 @@ class Game {
   int GetScore() const;
   int GetSize() const;
 
-  void PauseButton();
 
  private:
   Snake snake;
