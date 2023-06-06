@@ -81,13 +81,25 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
 }
 
 void Renderer::Pause(){
-    TTF_Font* font = TTF_OpenFont("Sans.ttf", font_size);
+  SDL_Init(SDL_INIT_VIDEO);
 
-    SDL_Color textColor = { 255, 255, 255 }; // White color
-    SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Paused", textColor);
-    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(sdl_renderer, textSurface);
-    // Render the texture on the screen at the desired position
-    // ...
-    SDL_FreeSurface(textSurface);
-    SDL_DestroyTexture(textTexture);
+  // Create an SDL_Window and SDL_Renderer
+  SDL_Window* window = SDL_CreateWindow("SDL Message Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, 0);
+  SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+
+  // Set the background color
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Set to black
+
+  // Clear the renderer
+  SDL_RenderClear(renderer);
+
+  // Set the color for the message
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // Set to white
+
+  // Define the message rectangle position and size
+  SDL_Rect messageRect;
+  messageRect.x = 100;
+  messageRect.y = 100;
+  messageRect.w = 200;
+  messageRect.h = 50;
 }
