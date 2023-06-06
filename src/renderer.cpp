@@ -81,11 +81,6 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
 }
 
 void Renderer::Pause(){
-  SDL_Init(SDL_INIT_VIDEO);
-
-  // Create an SDL_Window and SDL_Renderer
-  SDL_Window* window = SDL_CreateWindow("SDL Message Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, 0);
-  SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
 
   // Set the background color
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Set to black
@@ -95,11 +90,4 @@ void Renderer::Pause(){
 
   // Set the color for the message
   SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // Set to white
-
-  // Define the message rectangle position and size
-  SDL_Rect messageRect;
-  messageRect.x = 100;
-  messageRect.y = 100;
-  messageRect.w = 200;
-  messageRect.h = 50;
 }
