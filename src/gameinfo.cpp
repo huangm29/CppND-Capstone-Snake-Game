@@ -72,8 +72,8 @@ void Gameinfo::SaveToFile(std::string filename) {
   if (file.is_open()) {
     // Get the current date and time
     std::time_t currentTime = std::time(nullptr);
-    auto localTime = std::unique_ptr<std::tm, decltype(&std::free)>(
-        std::localtime(&currentTime), &std::free);
+    std::shared_ptr<std::tm> localTime(std::localtime(&currentTime),
+                                       [](std::tm *) {});
 
     // Write the game information and date/time to the file
     file << "Game Information" << std::endl;
