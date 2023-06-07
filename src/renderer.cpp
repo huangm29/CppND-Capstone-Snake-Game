@@ -19,6 +19,12 @@ Renderer::Renderer(const std::size_t screen_width,
   sdl_window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_CENTERED,
                                 SDL_WINDOWPOS_CENTERED, screen_width,
                                 screen_height, SDL_WINDOW_SHOWN);
+                      
+  // Prompt for the player's name
+    std::string playerName;
+    std::cout << "Enter your name: ";
+    std::cin >> playerName;
+
 
   if (nullptr == sdl_window) {
     std::cerr << "Window could not be created.\n";
