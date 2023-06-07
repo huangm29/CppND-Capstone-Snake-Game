@@ -1,4 +1,7 @@
 #include "gameinfo.h"
+#include <ctime>
+#include <fstream>
+#include <memory>
 
 Gameinfo::Gameinfo() {
   // Constructor that prompts user for name and level
@@ -61,4 +64,29 @@ int Gameinfo::GetScore() {
 int Gameinfo::GetSize() {
   // Getter function to retrieve the game size
   return _size;
+}
+
+void Gameinfo::SaveToFile(std::string filename) {
+  std::ofstream file(filename);
+  if (file.is_open()) {
+    // Get the current date and time
+    std::time_t currentTime = std::time(nullptr);
+    auto localTime = std::unique_ptr<std::tm, decltype(&std::free)>(
+        std::localtime(&currentTime), &std::free);
+
+    // Write the game information and date/time to the file
+    file << "Game Information" << std::endl;
+    file << "----------------" << std::endl;
+    file << "Name: " << _name << std::endl;
+    file << "Level: " << _level << std::endl;
+    file << "Score: " << _score << std::endl;
+    file << "Size: " << _size << std::endl;
+    file << "Date/Time: " << std::asctime(localTime.get()) << std::endl;
+
+    file.close();
+    std::cout << "Game information saved to " << filename << std::endl;
+  } else {
+    std::cerr << "Unable to open file " << filename << " for writing."
+              << std::endl;
+  }
 }

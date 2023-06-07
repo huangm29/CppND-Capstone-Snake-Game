@@ -22,5 +22,8 @@ int main() {
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";
   std::cout << "Size: " << game.GetSize() << "\n";
+  gameinfo.SetScore(game.GetScore());
+  gameinfo.SetSize(game.GetSize());
+  gameinfo.SaveToFile("Savdata/01.dat");
   return 0;
 }

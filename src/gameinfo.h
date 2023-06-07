@@ -31,6 +31,9 @@ public:
   int GetLevel();
   int GetScore();
   int GetSize();
+
+  // Save Record
+  void SaveToFile(std::string filename);
 };
 
 #endif // GAMEINFO_H
