@@ -24,6 +24,6 @@ int main() {
   std::cout << "Size: " << game.GetSize() << "\n";
   gameinfo.SetScore(game.GetScore());
   gameinfo.SetSize(game.GetSize());
-  gameinfo.SaveToFile("../Savdata/Record.dat");
+  gameinfo.SaveToFile("record.dat");
   return 0;
 }

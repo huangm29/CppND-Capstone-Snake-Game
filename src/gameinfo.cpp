@@ -68,7 +68,7 @@ int Gameinfo::GetSize() {
 }
 
 void Gameinfo::SaveToFile(std::string filename) {
-  std::ofstream file(filename, std::ios::app);
+  std::ofstream file(filename, std::ios::app | std::ios::out);
   if (file.is_open()) {
     // Get the current date and time
     std::time_t currentTime = std::time(nullptr);
