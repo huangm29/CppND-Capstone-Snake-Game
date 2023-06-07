@@ -1,6 +1,7 @@
 #include "gameinfo.h"
 #include <ctime>
 #include <fstream>
+#include <iostream>
 #include <memory>
 
 Gameinfo::Gameinfo() {
@@ -67,7 +68,7 @@ int Gameinfo::GetSize() {
 }
 
 void Gameinfo::SaveToFile(std::string filename) {
-  std::ofstream file(filename);
+  std::ofstream file(filename, std::ios::app);
   if (file.is_open()) {
     // Get the current date and time
     std::time_t currentTime = std::time(nullptr);
@@ -82,6 +83,8 @@ void Gameinfo::SaveToFile(std::string filename) {
     file << "Score: " << _score << std::endl;
     file << "Size: " << _size << std::endl;
     file << "Date/Time: " << std::asctime(localTime.get()) << std::endl;
+    file << "----------------" << std::endl;
+    file << std::endl;
 
     file.close();
     std::cout << "Game information saved to " << filename << std::endl;
