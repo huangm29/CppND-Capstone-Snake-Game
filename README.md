@@ -46,6 +46,25 @@ In this project I added several features for the Snake game.
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
 
+## Rubric Points
+### Loops, Functions, I/O
+  * The project demonstrates an understanding of C++ functions and control structures.
+    * Control structures are used for generating speical food. 
+  * Classes use appropriate access specifiers for class members.
+    * The record of game is saved to `record.dat` 
+  * The project accepts user input and processes the input.
+    * The game asks for player's name and difficulty.
+### Object Oriented Programming
+  * The project uses Object Oriented Programming techniques.
+    * The gameinfo class is for saving game record.
+  * Classes use appropriate access specifiers for class members.
+  * Class constructors utilize member initialization lists.
+  * Classes abstract implementation details from their interfaces.
+    * Code is documented.
+### Memory Management
+  * The project uses smart pointers instead of raw pointers.
+    * A smart pointer is used to get time/date. 
+
 
 ## CC Attribution-ShareAlike 4.0 International
 
