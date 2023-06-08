@@ -14,7 +14,6 @@ private:
 public:
   // Constructors
   Gameinfo();
-  Gameinfo(std::string name, int level, int score, int size);
 
   // Setter functions
   void SetName(std::string name);

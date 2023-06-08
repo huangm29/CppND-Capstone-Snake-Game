@@ -10,11 +10,6 @@ Gameinfo::Gameinfo() {
   InputUserLevel();
 }
 
-Gameinfo::Gameinfo(std::string name, int level, int score, int size)
-    : _name(name), _level(level), _score(score), _size(size) {
-  // Constructor that initializes the object with provided values
-}
-
 void Gameinfo::SetName(std::string name) {
   // Setter function for modifying the player's name
   _name = name;
