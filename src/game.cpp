@@ -82,6 +82,17 @@ void Game::Update() {
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
 
+    if (special_food_active) {
+      score += 5; // Get five points
+    } else {
+      score++;
+    }
+
+    PlaceFood();
+    // Grow snake and increase speed.
+    snake.GrowBody();
+    snake.speed += 0.02;
+
     // Check if special food needs to be activated
     if (!special_food_active) {
       // Randomly determine if special food should be generated
@@ -94,17 +105,6 @@ void Game::Update() {
         snake.speed += 0.4;
       }
     }
-
-    if (special_food_active) {
-      score += 5; // Get five points
-    } else {
-      score++;
-    }
-
-    PlaceFood();
-    // Grow snake and increase speed.
-    snake.GrowBody();
-    snake.speed += 0.02;
 
     // Check if special food duration has elapsed
     if (special_food_active) {
