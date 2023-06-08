@@ -88,15 +88,15 @@ void Game::Update() {
       std::random_device rd;
       std::mt19937 gen(rd());
       std::uniform_real_distribution<> dis(0.0, 1.0);
-      if (dis(gen) < 0.1) { // 10% chance for special food generation
+      if (dis(gen) < 0.5) { // 10% chance for special food generation
         special_food_active = true;
         special_food_start_time = std::chrono::steady_clock::now();
+        snake.speed += 0.4;
       }
     }
 
     if (special_food_active) {
       score += 5; // Get five points
-      snake.speed += 0.4;
     } else {
       score++;
     }
