@@ -83,15 +83,9 @@ void Game::Update() {
   if (food.x == new_x && food.y == new_y) {
 
     if (special_food_active) {
-      score += 5; // Get five points
-    } else {
-      score++;
+      special_food_active = false; // Disable special food
+      snake.speed -= 0.4;
     }
-
-    PlaceFood();
-    // Grow snake and increase speed.
-    snake.GrowBody();
-    snake.speed += 0.02;
 
     // Check if special food needs to be activated
     if (!special_food_active) {
@@ -105,16 +99,18 @@ void Game::Update() {
       }
     }
 
-    // Check if special food duration has elapsed
     if (special_food_active) {
-      std::random_device rd;
-      std::mt19937 gen(rd());
-      std::uniform_real_distribution<> dis(0.0, 1.0);
-      if (dis(gen) < 0.9) {          // 90% chance for normal food generation
-        special_food_active = false; // Disable special food
-        snake.speed -= 0.4;
-      }
+      score += 5; // Get five points
+    } else {
+      score++;
     }
+
+    PlaceFood();
+    // Grow snake and increase speed.
+    snake.GrowBody();
+    snake.speed += 0.02;
+
+    // Check if special food duration has elapsed
   }
 }
 
