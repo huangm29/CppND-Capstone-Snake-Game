@@ -19,7 +19,7 @@ public:
   std::chrono::steady_clock::time_point
       special_food_start_time; // Start time of special food
   std::chrono::seconds special_food_duration{
-      5}; // Duration of special food in seconds
+      1}; // Duration of special food in seconds
 
 private:
   Snake snake;
