@@ -14,7 +14,6 @@ public:
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
-
   bool special_food_active = false; // Flag to track if special food is active
 
 private:

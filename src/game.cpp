@@ -1,6 +1,5 @@
 #include "game.h"
 #include "SDL.h"
-#include <chrono>
 #include <iostream>
 
 Game::Game(std::size_t grid_width, std::size_t grid_height, float InitSpeed)
@@ -29,7 +28,10 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       renderer.Pause();
     } else {
       Update();
-      renderer.Render(snake, food, special_food_active);
+      renderer.Render(
+          snake, food,
+          special_food_active); // If the special food is active,
+                                // render food with  a different color
 
       frame_end = SDL_GetTicks();
 
@@ -82,26 +84,19 @@ void Game::Update() {
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
 
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+
     if (special_food_active) {
       special_food_active = false; // Disable special food
       snake.speed -= 0.4;
-    }
-
-    // Check if special food needs to be activated
-    if (!special_food_active) {
-      // Randomly determine if special food should be generated
-      std::random_device rd;
-      std::mt19937 gen(rd());
+      score += 5; // Get five points
+    } else {
       std::uniform_real_distribution<> dis(0.0, 1.0);
       if (dis(gen) < 0.1) { // 10% chance for special food generation
         special_food_active = true;
-        snake.speed += 0.4;
+        snake.speed += 0.4; // Increase the speed
       }
-    }
-
-    if (special_food_active) {
-      score += 5; // Get five points
-    } else {
       score++;
     }
 
@@ -109,8 +104,6 @@ void Game::Update() {
     // Grow snake and increase speed.
     snake.GrowBody();
     snake.speed += 0.02;
-
-    // Check if special food duration has elapsed
   }
 }
 

@@ -46,7 +46,7 @@ void Renderer::Render(Snake const snake, SDL_Point const &food,
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
 
-  // Render food
+  // Render food, special food is red
   if (!special_food_active) {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
   } else {
