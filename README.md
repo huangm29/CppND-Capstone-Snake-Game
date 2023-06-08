@@ -18,7 +18,7 @@ In this project I added several features for the Snake game.
 
 * **Special food**
   * A special food can sometimes be generated, which is color-coded by red. The special food bonuses for extra points
-    >, but the snake is also significantly accelerated.
+    , but the snake is also significantly accelerated.
 
 * **Saving Record**
   * The gaming record is automatically saved in `Record.dat`
