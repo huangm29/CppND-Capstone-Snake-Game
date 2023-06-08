@@ -7,8 +7,22 @@ This is a Capstone project in the [Udacity C++ Nanodegree Program](https://www.u
 In this project I added several features for the Snake game.
 
 ## New Features
-* Pause
-* The game can be paused by pressing <kbd style="background-color: #f5f5f5; padding: 2px 4px; border: 1px solid #ccc; border-radius: 3px;">p</kbd> button.
+* **Pause**
+  * The game can be paused by pressing the `p` button.
+
+* **Entering Name**
+  * The game will ask you to enter your name in the beginning.
+
+* **Adjust Difficulty**
+  * The game will ask you to choose difficulty in the beginning, which affects the initial speed of the snake.
+
+* **Special food**
+  * A special food can sometimes be generated, which is color-coded by red. The special food bonuses for extra points
+    >, but the snake is also significantly accelerated.
+
+* **Saving Record**
+  * The gaming record is automatically saved in `Record.dat`
+
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
