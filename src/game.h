@@ -16,10 +16,6 @@ public:
   int GetSize() const;
 
   bool special_food_active = false; // Flag to track if special food is active
-  std::chrono::steady_clock::time_point
-      special_food_start_time; // Start time of special food
-  std::chrono::seconds special_food_duration{
-      1}; // Duration of special food in seconds
 
 private:
   Snake snake;

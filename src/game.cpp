@@ -99,19 +99,18 @@ void Game::Update() {
       std::random_device rd;
       std::mt19937 gen(rd());
       std::uniform_real_distribution<> dis(0.0, 1.0);
-      if (dis(gen) < 0.5) { // 10% chance for special food generation
+      if (dis(gen) < 0.1) { // 10% chance for special food generation
         special_food_active = true;
-        special_food_start_time = std::chrono::steady_clock::now();
         snake.speed += 0.4;
       }
     }
 
     // Check if special food duration has elapsed
     if (special_food_active) {
-      auto current_time = std::chrono::steady_clock::now();
-      auto elapsed_time = std::chrono::duration_cast<std::chrono::seconds>(
-          current_time - special_food_start_time);
-      if (elapsed_time >= special_food_duration) {
+      std::random_device rd;
+      std::mt19937 gen(rd());
+      std::uniform_real_distribution<> dis(0.0, 1.0);
+      if (dis(gen) < 0.9) {          // 90% chance for normal food generation
         special_food_active = false; // Disable special food
         snake.speed -= 0.4;
       }
