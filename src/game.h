@@ -4,6 +4,7 @@
 #include "SDL.h"
 #include "controller.h"
 #include "renderer.h"
+#include <chrono>
 #include <random>
 
 class Game {
@@ -13,6 +14,12 @@ public:
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
+
+  bool special_food_active = false; // Flag to track if special food is active
+  std::chrono::steady_clock::time_point
+      special_food_start_time; // Start time of special food
+  std::chrono::seconds special_food_duration{
+      5}; // Duration of special food in seconds
 
 private:
   Snake snake;
